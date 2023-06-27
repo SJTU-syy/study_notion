@@ -1,12 +1,20 @@
-const NOTION_DATABASE_ID='secret_oaKryu2rMrVmKPwbJEatdCLf3IObj9gcJdlUSj86tYF';
-const NOTION_KEY='9f493263cffa44dead6c570b61362d7f?v=bd187472900e46eaa9cdd92794b0751e'
-
-
 import { Client } from "@notionhq/client"
 
-const notion = new Client({ auth: NOTION_KEY })
 
-const databaseId = NOTION_DATABASE_ID;
+let NOTION_KEY_HELLOWORLD='secret_oaKryu2rMrVmKPwbJEatdCLf3IObj9gcJdlUSj86tYF'
+let NOTION_DATABASE_ID_LIFE='9f493263cffa44dead6c570b61362d7f'
+
+
+// console.log(process.env.NOTION_KEY_HELLOWORLD);
+// console.log(process.env.NOTION_DATABASE_ID_LIFE);
+
+
+// const notion = new Client({ auth: process.env.NOTION_KEY_HELLOWORLD })
+// console.log(notion);
+// const databaseId = process.env.NOTION_DATABASE_ID_LIFE
+
+const notion = new Client({ auth: NOTION_KEY_HELLOWORLD })
+const databaseId = NOTION_DATABASE_ID_LIFE
 
 async function addItem(text) {
   try {
@@ -23,12 +31,12 @@ async function addItem(text) {
           ]
         }
       },
-    })
+    },20000)
     console.log(response)
     console.log("Success! Entry added.")
   } catch (error) {
-    console.error(error.body)
+    console.error(error)
   }
 }
 
-addItem("Yurts in Big Sur, California")
+addItem("Yurts in Big Sur, California_1")
